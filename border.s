@@ -69,7 +69,7 @@ bkp = $fd0
 
 ; *** TOP LINE ***
   ; prep scr ptr
-  ld32 ptr, $0001, $f800
+  ld32 ptr, $0ff8, $0800
   
   ; get current clr at left of line
   ldz #$00
@@ -95,7 +95,7 @@ bkp = $fd0
   sta cnt
 
   ; prep scr ptr
-  ld32 ptr, $0001, $f800 + (24*80)
+  ld32 ptr, $0ff8, $0800 + (24*80)
 
   ; get current clr at bottom-left of line
   ldz #$00
@@ -105,7 +105,7 @@ bkp = $fd0
   lda lastcol
   tay
 
-  ld32 ptr, $0001, $f800 + 80 ; top-left of line
+  ld32 ptr, $0ff8, $0800 + 80 ; top-left of line
 :
   lda32z ptr  ; get next (into x)
   tax
@@ -129,7 +129,7 @@ bkp = $fd0
   sta cnt
 
   ; prep scr ptr
-  ld32 ptr, $0001, $f800 + (24*80)
+  ld32 ptr, $0ff8, $0800 + (24*80)
 
   ; get last clr
   ldz #79
@@ -163,7 +163,7 @@ bkp = $fd0
   lda lastcol
   tay
 
-  ld32 ptr, $0001, $f800 + (23*80) + 79
+  ld32 ptr, $0ff8, $0800 + (23*80) + 79
 :
   lda32z ptr  ; get next (into x)
   tax
